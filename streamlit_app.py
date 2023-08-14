@@ -50,23 +50,18 @@ questions = {
 result_categories = {
     "Financial Instability": {
         "range": (6, 12),
-        "description": "Your financial health seems unstable."
     },
     "Financial Stability": {
         "range": (13, 18),
-        "description": "Your financial health seems stable."
     },
     "Financial Security": {
         "range": (19, 24),
-        "description": "Your financial health seems secured."
     },
     "Financial Freedom": {
         "range": (25, 30),
-        "description": "Your financial health is financial freedom."
     },
     "Financial Wealth": {
         "range": (31, 36),
-        "description": "Your financial health is financial wealth."
     },
 }
 
@@ -99,7 +94,6 @@ def display_result(result_category):
     st.subheader("Result:")
     if result_category:
         st.write(f"Based on your responses, you are in the '{result_category}' category.")
-        st.write(result_categories[result_category]["description"])
 
 if __name__ == "__main__":
     main()
