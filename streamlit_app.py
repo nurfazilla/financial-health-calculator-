@@ -79,8 +79,9 @@ def main():
 
     for question, options in questions.items():
         st.write(question)
-        selected_option = st.radio("Select an option:", list(options.keys()), key=question_number)
-        total_points += options[selected_option]
+        selected_option = st.radio("Select an option:", [''] + list(options.keys()), key=question_number)
+        if selected_option:
+            total_points += options[selected_option]
         question_number += 1
 
     if question_number == len(questions):
