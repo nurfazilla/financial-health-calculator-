@@ -78,9 +78,9 @@ def main():
 
     for question, options in questions.items():
         st.write(question)
-        selected_option = st.radio("Select an option:", list(options.keys()))
+        selected_option = st.radio("Select an option:", list(options.keys()), key=question)
         total_points += options[selected_option]
-    
+
     st.write("Calculating your financial health...")
 
     # Delay to create a sequential display effect
