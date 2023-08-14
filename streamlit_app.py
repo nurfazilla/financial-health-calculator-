@@ -85,10 +85,10 @@ def main():
         question_number += 1
 
     if question_number == len(questions):
-        st.button("Calculate")
-        if st.button:
-            result_category = calculate_result_category(total_points)
-            display_result(result_category)
+        if st.button("Calculate"):
+            with st.spinner("Calculating result..."):
+                result_category = calculate_result_category(total_points)
+                display_result(result_category)
 
 def calculate_result_category(total_points):
     for category, details in result_categories.items():
