@@ -1,6 +1,6 @@
 import streamlit as st
 
-### Define questions and point system
+#### Define questions and point system
 questions = {
     "1. What is your main source of income?": {
         "a.Uncertain source of income": 1,
@@ -65,17 +65,32 @@ def main():
         st.write(question)
         selected_option = st.radio("Select an option:", list(options.keys()))
         total_points += options[selected_option]
+    
+    st.write("Calculating your financial health...")
 
-    st.write(f"Total Points: {total_points}")
+    # Delay to create a sequential display effect
+    with st.spinner("Calculating..."):
+        import time
+        time.sleep(3)
 
+    st.write("Your financial health has been calculated!")
+
+    # Determine the result category
     result_category = None
-    for category, (min_points, max_points) in result_categories.items():
-        if min_points <= total_points <= max_points:
+    for category, details in result_categories.items():
+        if details["range"][0] <= total_points <= details["range"][1]:
             result_category = category
+            result_description = details["description"]
+            result_image = details["image"]
             break
 
     if result_category:
-        st.write(f"Financial Health Category: {result_category}")
+        st.subheader("Result:")
+        st.write(f"Based on your responses, you are in the '{result_category}' category.")
+        st.write(result_description)
+
+        if result_image:
+            st.image(result_image, caption="Category Image", use_column_width=True)
     else:
         st.write("Unable to determine financial health category")
 
