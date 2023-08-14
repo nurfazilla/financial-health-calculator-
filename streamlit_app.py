@@ -74,36 +74,31 @@ result_categories = {
 def main():
     st.title("Financial Health Calculator")
 
-    total_points = 0
-
     for question, options in questions.items():
         st.write(question)
         selected_option = st.radio("Select an option:", list(options.keys()), key=question)
-        total_points += options[selected_option]
+        st.write("")  # Empty line for spacing
 
-    st.write("Calculating your financial health...")
+    st.button("Calculate")
 
-    # Delay to create a sequential display effect
-    with st.spinner("Calculating..."):
-        import time
-        time.sleep(3)
-
-    st.write("Your financial health has been calculated!")
-
-    # Determine the result category
-    result_category = None
-    for category, details in result_categories.items():
-        if details["range"][0] <= total_points <= details["range"][1]:
-            result_category = category
-            result_description = details["description"]
-            break
+    result_category = calculate_result_category()
 
     if result_category:
         st.subheader("Result:")
         st.write(f"Based on your responses, you are in the '{result_category}' category.")
-        st.write(result_description)
-    else:
-        st.write("Unable to determine financial health category")
+        st.write(result_categories[result_category]["description"])
+
+def calculate_result_category():
+    total_points = 0
+
+    for question, options in questions.items():
+        selected_option = st.session_state.get(question, None)
+        if selected_option is not None:
+            total_points += options[selected_option]
+
+    for category, details in result_categories.items():
+        if details["range"][0] <= total_points <= details["range"][1]:
+            return category
 
 if __name__ == "__main__":
     main()
