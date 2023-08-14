@@ -46,13 +46,28 @@ questions = {
     },  
 }
 
-#### define result categories
+#### Define result categories and their details
 result_categories = {
-    "Financial Instability": (6, 12),
-    "Financial Stability": (13, 18),
-    "Financial Security": (19, 24),
-    "Financial Freedom": (25, 30),
-    "Financial Wealth": (31, 36)
+    "Financial Instability": {
+        "range": (6, 12),
+        "description": "Your financial health seems unstable."
+    },
+    "Financial Stability": {
+        "range": (13, 18),
+        "description": "Your financial health seems stable."
+    },
+    "Financial Security": {
+        "range": (19, 24),
+        "description": "Your financial health seems secured."
+    },
+    "Financial Freedom": {
+        "range": (25, 30),
+        "description": "Your financial health is financial freedom."
+    },
+    "Financial Wealth": {
+        "range": (31, 36),
+        "description": "Your financial health is financial wealth."
+    },
 }
 
 #### create streamlit app
@@ -81,16 +96,12 @@ def main():
         if details["range"][0] <= total_points <= details["range"][1]:
             result_category = category
             result_description = details["description"]
-            result_image = details["image"]
             break
 
     if result_category:
         st.subheader("Result:")
         st.write(f"Based on your responses, you are in the '{result_category}' category.")
         st.write(result_description)
-
-        if result_image:
-            st.image(result_image, caption="Category Image", use_column_width=True)
     else:
         st.write("Unable to determine financial health category")
 
