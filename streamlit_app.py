@@ -73,29 +73,23 @@ result_categories = {
 #### create streamlit app
 def main():
     st.title("Financial Health Calculator")
-    
-    st.session_state.total_points = 0
-    st.session_state.current_question = 0
 
-    if st.session_state.current_question < len(questions):
-        question = list(questions.keys())[st.session_state.current_question]
-        options = questions[question]
-        
+    question_number = 0
+    total_points = 0
+
+    for question, options in questions.items():
         st.write(question)
-        selected_option = st.radio("Select an option:", list(options.keys()), key=question)
-        
-        st.session_state.total_points += options[selected_option]
-        st.session_state.current_question += 1
+        selected_option = st.radio("Select an option:", list(options.keys()), key=question_number)
+        total_points += options[selected_option]
+        question_number += 1
 
-    if st.session_state.current_question == len(questions):
+    if question_number == len(questions):
         st.button("Calculate")
         if st.button:
-            result_category = calculate_result_category()
+            result_category = calculate_result_category(total_points)
             display_result(result_category)
 
-def calculate_result_category():
-    total_points = st.session_state.total_points
-
+def calculate_result_category(total_points):
     for category, details in result_categories.items():
         if details["range"][0] <= total_points <= details["range"][1]:
             return category
