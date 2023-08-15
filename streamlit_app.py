@@ -50,23 +50,23 @@ questions = {
 result_categories = {
     "Financial Instability": {
         "range": (6, 12),
-        "image": "https://drive.google.com/file/d/1KoqVxhHt_KT3UjUGSHa1189D-TTwTrjv/view?usp=sharing"
+        "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%201.JPG"
     },
     "Financial Stability": {
         "range": (13, 18),
-        "image": "https://drive.google.com/file/d/1D35SRj3doyi4C5iT-53qYPn2u9H4WFEd/view?usp=sharing",
+        "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%202.JPG",
     },
     "Financial Security": {
         "range": (19, 24),
-        "image": "https://drive.google.com/file/d/1NIJIGB2a3_nODstxYNHREjLwnRw8lHjW/view?usp=sharing"
+        "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%203.JPG"
     },
     "Financial Freedom": {
         "range": (25, 30),
-        "image": "https://drive.google.com/file/d/1XZvyTTE9_cetJFXfgVTTOwvtNqzLy76s/view?usp=sharing"
+        "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%204.JPG"
     },
     "Financial Wealth": {
         "range": (31, 36),
-         "image": "https://drive.google.com/file/d/12xyFs81ORqFAq3ZQKOq70SaNhNlGvLHa/view?usp=sharing"
+         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%205.JPG"
     },
 }
 
@@ -98,7 +98,7 @@ def calculate_result_category(total_points):
 def display_result(result_category):
     st.subheader("Result:")
     if result_category:
-        st.write(f"Based on your responses, you are in the '{result_category}' category.")
+        st.write(f"Based on your responses, you are in the stage of '{result_category}' category.")
         result_image = result_categories[result_category].get("image")
         if result_image:
             st.image(result_image, caption="Category Image", use_column_width=True)
