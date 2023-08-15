@@ -98,10 +98,10 @@ def calculate_result_category(total_points):
 def display_result(result_category):
     st.subheader("Result:")
     if result_category:
-        st.write(f"Berdasarkan maklum balas anda, anda berada pada kategori'{result_category}'")
+        st.write(f"Berdasarkan maklum balas anda, anda berada pada kategori '{result_category}'")
         result_image = result_categories[result_category].get("image")
         if result_image:
-            st.image(result_image, caption="Category Image", use_column_width=True)
+            st.image(result_image, caption="Tahap Kesihatan Kewangan Anda", use_column_width=True)
 
 if __name__ == "__main__":
     main()
