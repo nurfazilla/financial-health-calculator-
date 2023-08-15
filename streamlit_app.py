@@ -2,69 +2,69 @@ import streamlit as st
 
 #### Define questions and point system
 questions = {
-    "1. What is your main source of income?": {
-        "Uncertain source of income": 1,
-        "Have a stable source of income": 2,
-        "Have a stable and comfortable source of income": 3,
-        "Have various sources of stable income": 4,
-        "Having various sources of strong active and passive income": 5
+    "1. Terangkan keadaan sumber pendapatan anda?": {
+        "Sumber pendapatan yang tidak menentu": 1,
+        "Mempunyai sumber pendapatan yang stabil": 2,
+        "Mempunyai sumber pendapatan yang stabil dan selesa": 3,
+        "Mempunyai pelbagai sumber pendapatan yang stabil": 4,
+        "Mempunyai pelbagai sumber pendapatan aktif dan pasif yang kukuh": 5
     },
-    "2. How are you budgeting your monthly expenses according to your income?": {
-        "The amount of monthly expenses exceeds income": 1,
-        "Budget monthly expenses according to income": 2,
-        "Have a monthly surplus after expenses": 3,
-        "Monthly expenses are much lower compared to income": 4,
-        "One or two sources of income can cover monthly expenses": 5
+    "2. Berdasarkan sumber pendapatan anda, bagaimanakah anda merancang perbelanjaan bulanan?": {
+        "Jumlah perbelanjaan melebihi pendapatan": 1,
+        "Anggaran perbelanjaan mengikut pendapatan": 2,
+        "Mempunyai lebihan wang selepas perbelanjaan": 3,
+        "Perbelanjaan jauh lebih rendah berbanding pendapatan": 4,
+        "Satu atau dua sumber pendapatan boleh menampung perbelanjaan ": 5
     },
-    "3. How much do you currently have in savings?": {
-        "Not able to save": 1,
-        "Able to save but do not have savings": 2,
-        "Have savings equivalent to 1-6 months of income": 3,
-        "Have savings equal to 6-12 months of income": 4,
-        "Have a savings amount that exceeds the amount of 12 months of income": 5
+    "3. Berapakah jumlah simpanan anda pada masa ini?": {
+        "Tidak mampu menyimpan": 1,
+        "Mampu menyimpan tetapi sudah tiada simpanan": 2,
+        "Mempunyai simpanan bersamaan dengan 1-6 bulan pendapatan": 3,
+        "Mempunyai simpanan bersamaan dengan 6-12 bulan pendapatan": 4,
+        "Mempunyai simpanan melebihi 12 bulan pendapatan": 5
     },
-    "4. Do you own any assets for personal use?": {
-        "No assets": 1,
-        "Own assets for personal use": 2,
-        "Own assets for personal use and some assets for investment purposes": 3,
-        "Owning assets for own use and family members as well as various assets for investment purposes": 4,
-        "Owning assets for personal use and family members as well as various assets that provide consistent returns": 5
+    "4. Adakah anda memiliki aset?": {
+        "Tiada aset": 1,
+        "Memiliki aset untuk kegunaan sendiri ": 2,
+        "Memiliki aset untuk kegunaan sendiri dan sebahagian aset untuk pelaburan": 3,
+        "Memiliki aset untuk kegunaan sendiri dan keluarga dan pelbagai aset untuk pelaburan": 4,
+        "Memiliki aset untuk kegunaan sendiri dan keluarga dan pelbagai aset yang memberikan pulangan secara konsisten ": 5
     },
-    "5.Are you able to pay off your debts with your current income?": {
-        "Earned income is not able to pay debt": 1,
-        "Earned income is able to pay off debt": 2,
-        "Earned income is able to pay off debt and have excess funds after paying off debt": 3,
-        "Earned income able to pay off debt and able to generate additional income": 4,
-        "Free from debt": 5
+    "5. Adakah anda mampu untuk membayar balik hutang anda dengan pendapatan bulanan?": {
+        "Pendapatan bulanan tidak mampu untuk membayar balik hutang anda": 1,
+        "Pendapatan bulanan mampu untuk membayar balik hutang anda": 2,
+        "Pendapatan bulanan mampu untuk membayar balik hutang dan mempunyai lebihan wang selepas pembayaran": 3,
+        "Pendapatan bulanan mampu untuk membayar balik hutang dan mampu menjana pendapatan ": 4,
+        "Bebas daripada hutang ": 5
     },
-    "6.Do you have any insurance protection?": {
-        "No insurance protection": 1,
-        "Have minimum insurance protection for yourself or insurance coverage from the employer only": 2,
-        "Have insurance protection equivalent to approximately the annual income for yourself and family members": 3,
-        "Have insurance protection equivalent to twice or triple your annual income for yourself and family members": 4,
-        "Have insurance protection exceeding three times the annual income for yourself and family members": 5
+    "6. Adakah anda mempunyai perlindungan insurans?": {
+        "Tiada perlindungan insurans": 1,
+        "Mempunyai perlindungan insurans yang minimum untuk diri sendiri atau perlindungan insurans daripada majikan sahaja": 2,
+        "Mempunyai perlindungan insurans yang bersamaan dengan pendapatan tahunan untuk anda dan keluarga ": 3,
+        "Mempunyai perlindungan insurans yang bersamaan dengan 2 atau 3 kali pendapatan tahunan untuk anda dan keluarga ": 4,
+        "Mempunyai perlindungan insurans yang melebihi 3 kali pendapatan tahunan untuk anda dan keluarga ": 5
     },  
 }
 
 #### Define result categories and their details
 result_categories = {
-    "Financial Instability": {
+    "Stage 1: Kewangan Tidak Stabil": {
         "range": (6, 12),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%201.JPG"
     },
-    "Financial Stability": {
+    "Stage 2: Kestabilan Kewangan": {
         "range": (13, 18),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%202.JPG",
     },
-    "Financial Security": {
+    "Stage 3: Keselamatan Kewangan": {
         "range": (19, 24),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%203.JPG"
     },
-    "Financial Freedom": {
+    "Stage 4: Kebebasan Kewangan": {
         "range": (25, 30),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%204.JPG"
     },
-    "Financial Wealth": {
+    "Stage 5: Kekayaan Kewangan": {
         "range": (31, 36),
          "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%205.JPG"
     },
@@ -72,7 +72,7 @@ result_categories = {
 
 #### create streamlit app
 def main():
-    st.title("Financial Health Calculator")
+    st.title("Jom Nilai Tahap Kesihatan Kewangan Anda!")
 
     question_number = 0
     total_points = 0
@@ -98,7 +98,7 @@ def calculate_result_category(total_points):
 def display_result(result_category):
     st.subheader("Result:")
     if result_category:
-        st.write(f"Based on your responses, you are in the stage of '{result_category}' category.")
+        st.write(f"Berdasarkan maklum balas anda, anda berada pada '{result_category}' category.")
         result_image = result_categories[result_category].get("image")
         if result_image:
             st.image(result_image, caption="Category Image", use_column_width=True)
