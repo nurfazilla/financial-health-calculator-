@@ -79,7 +79,7 @@ def main():
 
     for question, options in questions.items():
         st.write(question)
-        selected_option = st.radio("Select an option:", [''] + list(options.keys()), key=question_number)
+        selected_option = st.radio("Pilih satu jawapan:", [''] + list(options.keys()), key=question_number)
         if selected_option:
             total_points += options[selected_option]
         question_number += 1
@@ -98,7 +98,7 @@ def calculate_result_category(total_points):
 def display_result(result_category):
     st.subheader("Result:")
     if result_category:
-        st.write(f"Berdasarkan maklum balas anda, anda berada pada '{result_category}' category.")
+        st.write(f"Berdasarkan maklum balas anda, anda berada pada kategori'{result_category}'")
         result_image = result_categories[result_category].get("image")
         if result_image:
             st.image(result_image, caption="Category Image", use_column_width=True)
