@@ -2,7 +2,7 @@ import streamlit as st
 
 #### Define questions and point system
 questions = {
-    "1. Terangkan keadaan sumber pendapatan anda?": {
+    "1. Pilih pernyataan yang menggambarkan sumber pendapatan anda.": {
         "Sumber pendapatan yang tidak menentu": 1,
         "Mempunyai sumber pendapatan yang stabil": 2,
         "Mempunyai sumber pendapatan yang stabil dan selesa": 3,
@@ -18,7 +18,7 @@ questions = {
     },
     "3. Berapakah jumlah simpanan anda pada masa ini?": {
         "Tidak mampu menyimpan": 1,
-        "Mampu menyimpan tetapi sudah tiada simpanan": 2,
+        "Mampu menyimpan tetapi simpanan terpaksa digunakan untuk menampung perbelanjaan keperluan harian": 2,
         "Mempunyai simpanan bersamaan dengan 1-6 bulan pendapatan": 3,
         "Mempunyai simpanan bersamaan dengan 6-12 bulan pendapatan": 4,
         "Mempunyai simpanan melebihi 12 bulan pendapatan": 5
@@ -48,7 +48,7 @@ questions = {
 
 #### Define result categories and their details
 result_categories = {
-    "Stage 1: Kewangan Tidak Stabil": {
+    "Stage 1: Ketidakstabilan Kewangan": {
         "range": (6, 12),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%201.JPG"
     },
