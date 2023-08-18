@@ -50,13 +50,13 @@ questions = {
 result_categories = {
     "Stage 1: Ketidakstabilan Kewangan": {
         "range": (6, 12),
-        "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%201.JPG"
+        "image": https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%201.JPG"
     },
     "Stage 2: Kestabilan Kewangan": {
         "range": (13, 18),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%202.JPG",
     },
-    "Stage 3: Keselamatan Kewangan": {
+    "Stage 3: Jaminan Kewangan": {
         "range": (19, 24),
         "image": "https://raw.githubusercontent.com/nurfazilla/financial-health-calculator-/main/Stage%203.JPG"
     },
